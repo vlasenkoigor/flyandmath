@@ -1,0 +1,29 @@
+{ 
+    
+    "let_centr_1": [
+        
+        {
+            "density": 2, "friction": 0, "bounce": 0, 
+            "filter": { "categoryBits": 1, "maskBits": 65535 },
+            "shape": [   49, 1  ,  69, 23  ,  24, 23  ,  2, 0  ]
+        }
+    ]
+    , 
+    "let_down_1": [
+        
+        {
+            "density": 2, "friction": 0, "bounce": 0, 
+            "filter": { "categoryBits": 1, "maskBits": 65535 },
+            "shape": [   1, 80  ,  81, 1  ,  160, 80  ]
+        }
+    ]
+    , 
+    "let_up_1": [
+        
+        {
+            "density": 2, "friction": 0, "bounce": 0, 
+            "filter": { "categoryBits": 1, "maskBits": 65535 },
+            "shape": [   80, 80  ,  0, 0  ,  161, 0  ]
+        }
+    ]
+}

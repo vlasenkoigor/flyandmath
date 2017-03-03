@@ -1,0 +1,17 @@
+{
+  "name": "flyandmath",
+  "version": "1.0.0",
+  "description": "hackaton game ",
+  "main": "index.js",
+  "scripts": {
+    "babel": "babel --presets es2015 js/main.js -o build/main.js",
+    "start": "http-server",
+    "dev": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-loader": "^6.3.2",
+    "webpack": "^2.2.1"
+  }
+}

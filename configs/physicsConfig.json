@@ -1,0 +1,11 @@
+{
+  "player" : {
+    "startSped" : 70,
+    "acceleration" : 1.7,
+    "accelerationTotalTime" : 500
+  },
+
+  "pipe" : {
+    "speed" : -80
+  }
+}
