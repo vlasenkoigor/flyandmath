@@ -938,6 +938,9 @@ var Preloader = {
                 this.load.audio('win', 'assets/sound/win.mp3');
                 this.load.audio('lose', 'assets/sound/loose.mp3');
 
+                //user pic
+                this.load.image('avatar', 'https://pp.userapi.com/c623823/v623823433/52688/WmkTpKfgNOI.jpg');
+
                 this.load.onLoadComplete.add(loadComplete, this);
         },
 
@@ -1452,6 +1455,10 @@ window.addEventListener("load", function () {
         // Your code here
         console.log('vk loaded', a, b, c);
         // VK.callMethod("showInstallBox");
+
+        VK.api("users.get", { "name_case": "Nom" }, function (data) {
+            console.log(data);
+        });
     }, function () {
         // API initialization failed
         // Can reload page here
@@ -1459,6 +1466,7 @@ window.addEventListener("load", function () {
     }, '5.63');
     //
 
+    //https://pp.userapi.com/c623823/v623823433/52688/WmkTpKfgNOI.jpg
     game.state.start("boot");
 });
 

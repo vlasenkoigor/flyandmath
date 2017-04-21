@@ -33,6 +33,13 @@ window.addEventListener("load", function () {
         console.log('vk loaded', a,b,c);
         // VK.callMethod("showInstallBox");
 
+        VK.api("users.get", {"name_case": "Nom"}, function (data) {
+            console.log(data);
+            
+        })
+
+
+
     }, function() {
         // API initialization failed
         // Can reload page here
@@ -41,6 +48,7 @@ window.addEventListener("load", function () {
     }, '5.63');
     //
 
+    //https://pp.userapi.com/c623823/v623823433/52688/WmkTpKfgNOI.jpg
     game.state.start("boot");
 });
 

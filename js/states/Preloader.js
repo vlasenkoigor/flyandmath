@@ -82,6 +82,9 @@ var Preloader = {
         this.load.audio('win', 'assets/sound/win.mp3');
         this.load.audio('lose', 'assets/sound/loose.mp3');
 
+        //user pic
+        this.load.image('avatar', 'https://pp.userapi.com/c623823/v623823433/52688/WmkTpKfgNOI.jpg');
+
         this.load.onLoadComplete.add(loadComplete, this);
     },
 
