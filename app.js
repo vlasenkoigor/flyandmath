@@ -1445,10 +1445,6 @@ window.addEventListener("load", function () {
     game.state.add("menu", __WEBPACK_IMPORTED_MODULE_5__states_Menu__["a" /* default */]);
 
     game.bestScore = 0;
-    game.scoreAPI.getUserRank(game.userName, result => {
-        var score = result.scores.score;
-        game.bestScore = score.value;
-    });
 
     VK.init(function (a, b, c) {
         // API initialization succeeded
@@ -1460,6 +1456,11 @@ window.addEventListener("load", function () {
             console.log(data);
 
             game.userName = data.last_name + ' ' + data.first_name;
+
+            game.scoreAPI.getUserRank(game.userName, result => {
+                var score = result.scores.score;
+                game.bestScore = score.value;
+            });
         });
 
         game.state.start("boot");
