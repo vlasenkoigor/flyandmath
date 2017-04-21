@@ -26,6 +26,20 @@ window.addEventListener("load", function () {
             game.bestScore = score.value;
     });
 
+
+    VK.init(function() {
+        // API initialization succeeded
+        // Your code here
+        console.log('vk loaded');
+        
+    }, function() {
+        // API initialization failed
+        // Can reload page here
+        console.log('VK fail');
+        
+    }, '5.63');
+    
+
     game.state.start("boot");
 });
 

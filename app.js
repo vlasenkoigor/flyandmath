@@ -6,9 +6,9 @@
 /******/ 	function __webpack_require__(moduleId) {
 /******/
 /******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
+/******/ 		if(installedModules[moduleId]) {
 /******/ 			return installedModules[moduleId].exports;
-/******/
+/******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 11);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -173,7 +173,7 @@ class Api {
     // }
 }
 
-/* harmony default export */ __webpack_exports__["a"] = Api;
+/* harmony default export */ __webpack_exports__["a"] = (Api);
 
 /***/ }),
 /* 1 */
@@ -185,7 +185,7 @@ var bootState = {
         this.load.image('preloadbar', 'assets/phaser-game-progress-bar.png');
     },
     create: function () {
-         this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         this.scale.pageAlignHorizontally = true;
     },
     update: function () {
@@ -193,7 +193,7 @@ var bootState = {
     }
 };
 
-/* harmony default export */ __webpack_exports__["a"] = bootState;
+/* harmony default export */ __webpack_exports__["a"] = (bootState);
 
 /***/ }),
 /* 2 */
@@ -268,7 +268,7 @@ var introState = {
     render: function () {}
 };
 
-/* harmony default export */ __webpack_exports__["a"] = introState;
+/* harmony default export */ __webpack_exports__["a"] = (introState);
 
 /***/ }),
 /* 3 */
@@ -380,7 +380,7 @@ var leadesState = {
         }
     }
 };
-/* harmony default export */ __webpack_exports__["a"] = leadesState;
+/* harmony default export */ __webpack_exports__["a"] = (leadesState);
 
 /***/ }),
 /* 4 */
@@ -449,7 +449,7 @@ var menuState = {
         this.clouds.tilePosition.x -= 0.7;
     }
 };
-/* harmony default export */ __webpack_exports__["a"] = menuState;
+/* harmony default export */ __webpack_exports__["a"] = (menuState);
 
 /***/ }),
 /* 5 */
@@ -459,7 +459,7 @@ var menuState = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Player_js__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PipeEmitter__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ExpresionGenerator__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ui_ProgressBar__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ui_ProgressBar__ = __webpack_require__(11);
 
 
 
@@ -853,7 +853,7 @@ var playState = {
         }
 };
 
-/* harmony default export */ __webpack_exports__["a"] = playState;
+/* harmony default export */ __webpack_exports__["a"] = (playState);
 
 /***/ }),
 /* 6 */
@@ -949,7 +949,7 @@ var Preloader = {
         }
 };
 
-/* harmony default export */ __webpack_exports__["a"] = Preloader;
+/* harmony default export */ __webpack_exports__["a"] = (Preloader);
 
 /***/ }),
 /* 7 */
@@ -1064,7 +1064,7 @@ class ExpresionGenerator {
 
 }
 
-/* harmony default export */ __webpack_exports__["a"] = ExpresionGenerator;
+/* harmony default export */ __webpack_exports__["a"] = (ExpresionGenerator);
 
 /***/ }),
 /* 8 */
@@ -1313,7 +1313,7 @@ class CalcAchive extends Phaser.Sprite {
     }
 }
 
-/* harmony default export */ __webpack_exports__["a"] = PipeEmitter;
+/* harmony default export */ __webpack_exports__["a"] = (PipeEmitter);
 
 /***/ }),
 /* 9 */
@@ -1404,10 +1404,74 @@ class Player extends Phaser.Sprite {
     }
 }
 
-/* harmony default export */ __webpack_exports__["a"] = Player;
+/* harmony default export */ __webpack_exports__["a"] = (Player);
 
 /***/ }),
 /* 10 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__states_Boot__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__states_Preloader__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__states_Intro__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__states_Leaders__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__states_Play__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__states_Menu__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__api_api__ = __webpack_require__(0);
+
+
+
+
+
+
+
+
+var game;
+window.addEventListener("load", function () {
+
+    var userName = getJsonFromUrl().user || 'Data guest';
+    game = new Phaser.Game(1024, 576, Phaser.CANVAS, '', {}, true);
+    game.scoreAPI = new __WEBPACK_IMPORTED_MODULE_6__api_api__["a" /* default */]();
+    game.userName = userName;
+    game.state.add("boot", __WEBPACK_IMPORTED_MODULE_0__states_Boot__["a" /* default */]);
+    game.state.add("preloader", __WEBPACK_IMPORTED_MODULE_1__states_Preloader__["a" /* default */]);
+    game.state.add("intro", __WEBPACK_IMPORTED_MODULE_2__states_Intro__["a" /* default */]);
+    game.state.add("play", __WEBPACK_IMPORTED_MODULE_4__states_Play__["a" /* default */]);
+    game.state.add("leaders", __WEBPACK_IMPORTED_MODULE_3__states_Leaders__["a" /* default */]);
+    game.state.add("menu", __WEBPACK_IMPORTED_MODULE_5__states_Menu__["a" /* default */]);
+
+    game.bestScore = 0;
+    game.scoreAPI.getUserRank(game.userName, result => {
+        var score = result.scores.score;
+        game.bestScore = score.value;
+    });
+
+    VK.init(function () {
+        // API initialization succeeded
+        // Your code here
+        console.log('vk loaded');
+    }, function () {
+        // API initialization failed
+        // Can reload page here
+        console.log('VK fail');
+    }, '5.63');
+
+    game.state.start("boot");
+});
+
+function getJsonFromUrl() {
+    var query = location.search.substr(1);
+    var result = {};
+    query.split("&").forEach(function (part) {
+        var item = part.split("=");
+        result[item[0]] = decodeURIComponent(item[1]);
+    });
+    return result;
+}
+
+/***/ }),
+/* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1459,61 +1523,7 @@ class ProgressBar extends Phaser.Group {
     }
 }
 
-/* harmony default export */ __webpack_exports__["a"] = ProgressBar;
-
-/***/ }),
-/* 11 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__states_Boot__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__states_Preloader__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__states_Intro__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__states_Leaders__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__states_Play__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__states_Menu__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__api_api__ = __webpack_require__(0);
-
-
-
-
-
-
-
-
-var game;
-window.addEventListener("load", function () {
-
-    var userName = getJsonFromUrl().user || 'Data guest';
-    game = new Phaser.Game(1024, 576, Phaser.CANVAS, '', {}, true);
-    game.scoreAPI = new __WEBPACK_IMPORTED_MODULE_6__api_api__["a" /* default */]();
-    game.userName = userName;
-    game.state.add("boot", __WEBPACK_IMPORTED_MODULE_0__states_Boot__["a" /* default */]);
-    game.state.add("preloader", __WEBPACK_IMPORTED_MODULE_1__states_Preloader__["a" /* default */]);
-    game.state.add("intro", __WEBPACK_IMPORTED_MODULE_2__states_Intro__["a" /* default */]);
-    game.state.add("play", __WEBPACK_IMPORTED_MODULE_4__states_Play__["a" /* default */]);
-    game.state.add("leaders", __WEBPACK_IMPORTED_MODULE_3__states_Leaders__["a" /* default */]);
-    game.state.add("menu", __WEBPACK_IMPORTED_MODULE_5__states_Menu__["a" /* default */]);
-
-    game.bestScore = 0;
-    game.scoreAPI.getUserRank(game.userName, result => {
-        var score = result.scores.score;
-        game.bestScore = score.value;
-    });
-
-    game.state.start("boot");
-});
-
-function getJsonFromUrl() {
-    var query = location.search.substr(1);
-    var result = {};
-    query.split("&").forEach(function (part) {
-        var item = part.split("=");
-        result[item[0]] = decodeURIComponent(item[1]);
-    });
-    return result;
-}
+/* harmony default export */ __webpack_exports__["a"] = (ProgressBar);
 
 /***/ })
 /******/ ]);
