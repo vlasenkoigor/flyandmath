@@ -27,12 +27,11 @@ window.addEventListener("load", function () {
     });
 
 
-    VK.init(function() {
+    VK.init(function(a, b, c) {
         // API initialization succeeded
         // Your code here
-        console.log('vk loaded');
+        console.log('vk loaded', a,b,c);
         // VK.callMethod("showInstallBox");
-        VK.callMethod("showSettingsBox", 8214);
 
     }, function() {
         // API initialization failed
