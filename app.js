@@ -1455,7 +1455,7 @@ window.addEventListener("load", function () {
         VK.api("users.get", { "name_case": "Nom" }, function (data) {
             console.log(data);
 
-            game.userName = data.last_name + ' ' + data.first_name;
+            game.userName = data.response[0].last_name + ' ' + data.response[0].first_name;
 
             game.scoreAPI.getUserRank(game.userName, result => {
                 var score = result.scores.score;
