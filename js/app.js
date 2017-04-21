@@ -31,15 +31,16 @@ window.addEventListener("load", function () {
         // API initialization succeeded
         // Your code here
         console.log('vk loaded');
-        VK.callMethod("showInstallBox");
-        
+        // VK.callMethod("showInstallBox");
+        VK.callMethod("showSettingsBox", 8214);
+
     }, function() {
         // API initialization failed
         // Can reload page here
         console.log('VK fail');
-        
+
     }, '5.63');
-    
+    //
 
     game.state.start("boot");
 });
