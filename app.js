@@ -1433,10 +1433,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 var game;
 window.addEventListener("load", function () {
 
-    var userName = getJsonFromUrl().user || 'Data guest';
+    // var userName = getJsonFromUrl().user || 'Data guest';
     game = new Phaser.Game(1024, 576, Phaser.CANVAS, '', {}, true);
     game.scoreAPI = new __WEBPACK_IMPORTED_MODULE_6__api_api__["a" /* default */]();
-    game.userName = userName;
+    // game.userName = userName;
     game.state.add("boot", __WEBPACK_IMPORTED_MODULE_0__states_Boot__["a" /* default */]);
     game.state.add("preloader", __WEBPACK_IMPORTED_MODULE_1__states_Preloader__["a" /* default */]);
     game.state.add("intro", __WEBPACK_IMPORTED_MODULE_2__states_Intro__["a" /* default */]);
@@ -1458,7 +1458,11 @@ window.addEventListener("load", function () {
 
         VK.api("users.get", { "name_case": "Nom" }, function (data) {
             console.log(data);
+
+            game.userName = data.last_name + ' ' + data.first_name;
         });
+
+        game.state.start("boot");
     }, function () {
         // API initialization failed
         // Can reload page here
@@ -1467,7 +1471,6 @@ window.addEventListener("load", function () {
     //
 
     //https://pp.userapi.com/c623823/v623823433/52688/WmkTpKfgNOI.jpg
-    game.state.start("boot");
 });
 
 function getJsonFromUrl() {

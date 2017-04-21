@@ -9,10 +9,10 @@ import Api from './api/api';
 var game;
 window.addEventListener("load", function () {
 
-    var userName = getJsonFromUrl().user || 'Data guest';
+    // var userName = getJsonFromUrl().user || 'Data guest';
     game = new Phaser.Game(1024, 576, Phaser.CANVAS, '', {}, true);
     game.scoreAPI = new Api();
-    game.userName = userName;
+    // game.userName = userName;
     game.state.add("boot", bootState);
     game.state.add("preloader", Preloader);
     game.state.add("intro", introState);
@@ -35,9 +35,12 @@ window.addEventListener("load", function () {
 
         VK.api("users.get", {"name_case": "Nom"}, function (data) {
             console.log(data);
-            
-        })
 
+            game.userName = data.last_name + ' ' + data.first_name;
+        });
+
+
+        game.state.start("boot");
 
 
     }, function() {
@@ -49,7 +52,7 @@ window.addEventListener("load", function () {
     //
 
     //https://pp.userapi.com/c623823/v623823433/52688/WmkTpKfgNOI.jpg
-    game.state.start("boot");
+
 });
 
 function getJsonFromUrl() {
