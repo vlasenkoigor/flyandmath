@@ -31,6 +31,7 @@ window.addEventListener("load", function () {
         // API initialization succeeded
         // Your code here
         console.log('vk loaded');
+        VK.callMethod("showInstallBox");
         
     }, function() {
         // API initialization failed
