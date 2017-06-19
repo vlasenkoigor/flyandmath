@@ -1446,7 +1446,7 @@ window.addEventListener("load", function () {
 
     game.bestScore = 0;
 
-    VK.init(function (a, b, c) {
+    /*VK.init(function (a, b, c) {
         // API initialization succeeded
         // Your code here
         console.log('vk loaded', a, b, c);
@@ -1469,8 +1469,8 @@ window.addEventListener("load", function () {
         // Can reload page here
         console.log('VK fail');
     }, '5.63');
-    //
-
+    //*/
+ game.state.start("boot");
     //https://pp.userapi.com/c623823/v623823433/52688/WmkTpKfgNOI.jpg
 });
 
