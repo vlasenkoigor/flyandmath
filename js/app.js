@@ -9,10 +9,10 @@ import Api from './api/api';
 var game;
 window.addEventListener("load", function () {
 
-    // var userName = getJsonFromUrl().user || 'Data guest';
+    var userName = getJsonFromUrl().user || 'test11';
     game = new Phaser.Game(1024, 576, Phaser.CANVAS, '', {}, true);
     game.scoreAPI = new Api();
-    // game.userName = userName;
+    game.userName = userName;
     game.state.add("boot", bootState);
     game.state.add("preloader", Preloader);
     game.state.add("intro", introState);
@@ -22,39 +22,7 @@ window.addEventListener("load", function () {
 
     game.bestScore = 0;
 
-
-
-    VK.init(function(a, b, c) {
-        // API initialization succeeded
-        // Your code here
-        console.log('vk loaded', a,b,c);
-        // VK.callMethod("showInstallBox");
-
-        VK.api("users.get", {"name_case": "Nom"}, function (data) {
-            console.log(data);
-
-            game.userName = data.response[0].last_name + ' ' + data.response[0].first_name;
-
-            game.scoreAPI.getUserRank(game.userName, (result) =>{
-                var score = result.scores.score;
-                game.bestScore = score.value;
-            });
-        });
-
-
-        game.state.start("boot");
-
-
-    }, function() {
-        // API initialization failed
-        // Can reload page here
-        console.log('VK fail');
-
-    }, '5.63');
-    //
-
-    //https://pp.userapi.com/c623823/v623823433/52688/WmkTpKfgNOI.jpg
-
+    game.state.start("boot");
 });
 
 function getJsonFromUrl() {

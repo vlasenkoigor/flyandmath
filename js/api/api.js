@@ -3,7 +3,9 @@
  */
 class Api{
     constructor(){
-        App42.initialize("89633700275542faf694868d356721ae5d073f334843e68cdc72fa91986be532", "4611b1e5b7875d8a4f93dda329322d87bb8dcbccf2b565694b3610ef08dd980a");
+        const API_KEY = "89633700275542faf694868d356721ae5d073f334843e68cdc72fa91986be532",
+            SECRET_KEY = "4611b1e5b7875d8a4f93dda329322d87bb8dcbccf2b565694b3610ef08dd980a"
+        App42.initialize(API_KEY, SECRET_KEY);
         this.gameName = "fm";
         this.scoreBoardService = new App42ScoreBoard();
     }

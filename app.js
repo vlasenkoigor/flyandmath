@@ -76,7 +76,9 @@
  */
 class Api {
     constructor() {
-        App42.initialize("89633700275542faf694868d356721ae5d073f334843e68cdc72fa91986be532", "4611b1e5b7875d8a4f93dda329322d87bb8dcbccf2b565694b3610ef08dd980a");
+        const API_KEY = "89633700275542faf694868d356721ae5d073f334843e68cdc72fa91986be532",
+              SECRET_KEY = "4611b1e5b7875d8a4f93dda329322d87bb8dcbccf2b565694b3610ef08dd980a";
+        App42.initialize(API_KEY, SECRET_KEY);
         this.gameName = "fm";
         this.scoreBoardService = new App42ScoreBoard();
     }
@@ -1433,10 +1435,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 var game;
 window.addEventListener("load", function () {
 
-    // var userName = getJsonFromUrl().user || 'Data guest';
+    var userName = getJsonFromUrl().user || 'test11';
     game = new Phaser.Game(1024, 576, Phaser.CANVAS, '', {}, true);
     game.scoreAPI = new __WEBPACK_IMPORTED_MODULE_6__api_api__["a" /* default */]();
-    // game.userName = userName;
+    game.userName = userName;
     game.state.add("boot", __WEBPACK_IMPORTED_MODULE_0__states_Boot__["a" /* default */]);
     game.state.add("preloader", __WEBPACK_IMPORTED_MODULE_1__states_Preloader__["a" /* default */]);
     game.state.add("intro", __WEBPACK_IMPORTED_MODULE_2__states_Intro__["a" /* default */]);
@@ -1446,32 +1448,7 @@ window.addEventListener("load", function () {
 
     game.bestScore = 0;
 
-    /*VK.init(function (a, b, c) {
-        // API initialization succeeded
-        // Your code here
-        console.log('vk loaded', a, b, c);
-        // VK.callMethod("showInstallBox");
-
-        VK.api("users.get", { "name_case": "Nom" }, function (data) {
-            console.log(data);
-
-            game.userName = data.response[0].last_name + ' ' + data.response[0].first_name;
-
-            game.scoreAPI.getUserRank(game.userName, result => {
-                var score = result.scores.score;
-                game.bestScore = score.value;
-            });
-        });
-
-        game.state.start("boot");
-    }, function () {
-        // API initialization failed
-        // Can reload page here
-        console.log('VK fail');
-    }, '5.63');
-    //*/
- game.state.start("boot");
-    //https://pp.userapi.com/c623823/v623823433/52688/WmkTpKfgNOI.jpg
+    game.state.start("boot");
 });
 
 function getJsonFromUrl() {
